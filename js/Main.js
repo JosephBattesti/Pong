@@ -1,35 +1,16 @@
-import {SceneManager} from './SceneManager.js';
+import { SceneManager } from "./SceneManager.js";
 
+//Add Up and down Controlls
 document.onkeydown = checkKey;
 function checkKey(e) {
+  e = e || window.event;
 
-    e = e || window.event;
-
-    if (e.keyCode == '38') {
-        // up arrow
-        console.log('up')
-        Scene.PlayerMoveUp();
-    }
-    else if (e.keyCode == '40') {
-        // down arrow
-        Scene.PlayerMoveDown();
-        console.log('down')
-    }
-    else if (e.keyCode == '37') {
-        Scene.animate();
-    }
-    else if (e.keyCode == '39') {
-       // right arrow
-    }
-
+  if (e.keyCode == "38") {
+    Scene.PlayerMoveUp();
+  } else if (e.keyCode == "40") {
+    Scene.PlayerMoveDown();
+  }
 }
-
+// Create Game. Lacking Menu and Game logic here. Refresh Browser to replay
 const Scene = new SceneManager();
 Scene.animate();
-
-
-
-
-
-
-

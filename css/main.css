@@ -1,7 +1,7 @@
 body {
-    margin: 0px;
-    height: 100vh;
+  margin: 0px;
+  min-height: 50vh;
 }
 canvas {
-    display: block;
+  display: block;
 }
