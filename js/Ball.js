@@ -7,9 +7,8 @@ export class Ball extends GameObject {
       super(posX,posY,speedX,speedY,0.5,0xffffff);
       this.id='ball';  
       this.collide = false; 
+      this.height=0.2;
       this.mesh=this.buildMesh();
-      this.otherPositions=[];
-      this.score=[0,0];
     }
 
     move() {
@@ -18,6 +17,8 @@ export class Ball extends GameObject {
       }
 
     blink() {
+      this.mesh.material.color.setHex( 0xffffff );
+
 
     }
 
@@ -30,32 +31,16 @@ export class Ball extends GameObject {
       return Math.sqrt(Math.pow(pos1[0]-pos2[0],2)+Math.pow(pos1[1]-pos2[1],2));
     }
 
-
-    checkCollision() {
-
-      super.checkCollision();
-      for (let pos of this.otherPositions){
-        if(this.dist(pos)<this.size*2){
-          this.speedX=this.speedX*-1;
-          this.collide=true;
-        }
-      }
-      if(this.posX<-this.Xboundary){
-        this.spawn();
-        this.score[0]+=1;
-      } else if (this.posX>this.Xboundary){
-        this.spawn();
-        this.score[1]+=1;
-      }
-    }
-
     spawn(){
       this.posX=0;
       this.posY=0;
       let angle=Math.random()*2*Math.PI;
-      console.log(this.speed);
       this.speedY=this.speed*Math.sin(angle);
       this.speedX=this.speed*Math.cos(angle);
+    }
+
+    changeDirection(){
+      this.speedX=this.speedX*-1;
     }
 
 
@@ -69,7 +54,7 @@ export class Ball extends GameObject {
     
 
     buildMesh(){
-      const geometry = new THREE.SphereGeometry( 0.5, 16, 16 );
+      const geometry = new THREE.SphereGeometry( this.height, 16, 16 );
       const material = new THREE.MeshLambertMaterial({color: this.color})
       let mesh = new THREE.Mesh( geometry, material );
       const wireframe=new THREE.WireframeGeometry(geometry);

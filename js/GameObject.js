@@ -1,6 +1,6 @@
 export class GameObject {
 
-    constructor(posX,posY,speedX,speedY,size,color) {
+    constructor(posX,posY,speedX,speedY,size,color,height) {
       this.posX = posX;
       this.posY = posY;
       this.Yboundary=3;
@@ -24,7 +24,6 @@ export class GameObject {
     checkCollision() {
 
       if(this.posY<-this.Yboundary || this.posY>this.Yboundary){
-        console.log('collide');
         this.speedY=this.speedY*-1;
       }
 

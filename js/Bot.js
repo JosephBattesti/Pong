@@ -22,21 +22,21 @@ export class Bot extends Paddle {
 
     see(pos){
         this.ballPos=pos;
-        
     }
 
     update(){
+
         super.update();
-        if(this.posY>this.ballPos[1]){
-            this.moveDown();
-            
+            if(this.posY>this.ballPos[1]){
+                this.moveDown();
+            }else if(this.posY<this.ballPos[1]){
+                this.moveUp();
+            }
         }
 
-        if(this.posY<this.ballPos[1]){
-            this.moveUp();
-        }
-        
+    checkCollision(){
+
     }
 
+    }
 
-  }

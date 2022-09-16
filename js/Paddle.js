@@ -17,7 +17,6 @@ export class Paddle extends GameObject {
     }
 
     move() {
-      this.posX +=0;
       this.posY +=this.speedY;
 
       if (this.speedY!=0){
@@ -33,19 +32,7 @@ export class Paddle extends GameObject {
     }
 
 
-
     buildMesh() {
-      // let geometry = new THREE.BoxGeometry(0.1,1,1,5,10);
-      // let material = new THREE.MeshLambertMaterial({color: 0xff0000})
-      // let mesh = new THREE.Mesh( geometry, material );
-      // // const wireframe=new THREE.WireframeGeometry(geometry);
-      // // const line = new THREE.LineSegments(wireframe);
-      // // line.material.depthTest=false;
-      // // line.material.opacity=0.39;
-      // // line.material.transparent=true;
-      // // mesh.add( line );
-      // return mesh;
-
       const geometry = new THREE.BoxGeometry( 0.1, 1, 0.5,10,10 );
       const material = new THREE.MeshLambertMaterial({color: this.color})
       let mesh = new THREE.Mesh( geometry, material );

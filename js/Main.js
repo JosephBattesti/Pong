@@ -1,6 +1,3 @@
-import {Player} from './Player.js';
-import { Ball } from './Ball.js';
-import { Bot } from './Bot.js';
 import {SceneManager} from './SceneManager.js';
 
 document.onkeydown = checkKey;
@@ -19,7 +16,7 @@ function checkKey(e) {
         console.log('down')
     }
     else if (e.keyCode == '37') {
-       // left arrow
+        Scene.animate();
     }
     else if (e.keyCode == '39') {
        // right arrow
@@ -27,13 +24,10 @@ function checkKey(e) {
 
 }
 
-const Player1 = new Player(2,0);
-const Ball1 = new Ball(0,0,0.1,0.05);
-const Bot1 = new Bot(-2,0);
-
-const Scene = new SceneManager([Ball1,Player1,Bot1]);
-
+const Scene = new SceneManager();
 Scene.animate();
+
+
 
 
 
