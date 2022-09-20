@@ -18,7 +18,7 @@ export class SceneManager {
 
     //Create GameObjects
     //Las two arguments in Player and Bot are friction and Acceleration. The can be tuned to the desired game difficulty
-    this.Player = new Player(this.Xboundary, this.Yboundary, 0.98, 0.02);
+    this.Player = new Player(this.Xboundary, this.Yboundary, 0.97, 0.05);
     this.Bot = new Bot(this.Xboundary, this.Yboundary, 0.95, 0.004);
     this.Ball = new Ball(0.1, this.Xboundary, this.Yboundary);
     this.gameObjects = [this.Player, this.Ball, this.Bot];
